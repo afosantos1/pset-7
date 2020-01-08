@@ -3,7 +3,6 @@ function commonEnd(a, b) {
     return false;
   }
 
-
   // write your code here
 }
 
