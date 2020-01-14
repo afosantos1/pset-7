@@ -3,45 +3,36 @@ function commonEnd(a, b) {
     return false;
   }
   if (a[0] ===b[0]) {
-    return true;
-  }
-  else if (a[a.length-1] === b[b.length-1]) {
-    return true;
-  }
-  else {
-    return false;
-  }
-}
+     return true;
+   }
+   else if (a[a.length-1] === b[b.length-1]) {
+     return true;
+   }
+   else {
+     return false;
+   }
+ }
 
 function endsMeet(values, n) {
-  let arr = [];
-  if (!values || values.length < n) {
-    return arr;
+    let array = [];
+    if (!values || values.length < n) {
+      return array;
+    }
+    for (i = 0; i < n + 1; i++) {
+      array.push(values[i]);
+      console.log(i);
+    }
+    for (z = values.length; z > n + 1; z--) {
+      array.push(values[z])
+    }
+    if (n === 0) {
+      array = values
+    }
+    if (n < 0) {
+    array = []
+    }
+    return array;
   }
-  for (i = 0; i < n + 1; i++) {
-    arr.push(values[i]);
-    console.log(i);
-  }
-  for (z = values.length; z > n + 1; z--) {
-    arr.push(values[z])
-  }
-  if (n === 0) {
-    arr = values
-  }
-  if (n < 0) {
-    arr = []
-  }
-  return arr;
-}
-
-
-
-  // write your code here
-}
-
-function endsMeet(values, n) {
-  // write your code here
-}
 
 function difference(numbers) {
   // write your code here
