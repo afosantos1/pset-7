@@ -305,4 +305,4 @@ module.exports = {
   consecutive,
   balance,
   clumps
-}
+};
