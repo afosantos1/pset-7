@@ -70,6 +70,8 @@ function difference(numbers) {
   }
 }
 
+
+
 function max(number) {
   if (!number || number.length < 3 || number.length % 2 == 0) {
     return undefined;
@@ -209,6 +211,9 @@ function consecutive(numbers) {
   }
   return false;
 }
+
+
+
 function balance(numbers) {
   let size = 0
   let sum1 = 0
