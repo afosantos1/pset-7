@@ -13,7 +13,10 @@ function commonEnd(a, b) {
   }
 }
 
+
+
 function endsMeet(values, n) {
+  let empty = [];
   let arr = [];
   if (!values || values.length < n || n < 0) {
     return arr;
@@ -25,10 +28,12 @@ function endsMeet(values, n) {
     arr.push(values[z])
   }
   if (n === 0) {
-    arr = values
+    return empty;
   }
   return arr
 }
+
+
 
 function difference(numbers) {
   let difference = 0;
@@ -89,6 +94,8 @@ function max(number) {
   }
 }
 
+
+
 function middle(values) {
   let array = []
   if (!values || values.length < 3 || values.length % 2 == 0) {
@@ -103,6 +110,8 @@ function middle(values) {
   array.push(three_middle);
   return array;
 }
+
+
 
 function increasing(numbers) {
   let tmp = numbers;
@@ -140,39 +149,140 @@ function increasing(numbers) {
   }
 }
 
+
+
 function everywhere(values, x) {
-  let count = 0
-  for (let i = 0; i < values.length; i++) {
-    if (!values || values.length < 1, !x) {
-      return false;
-      break;
-    }
-    if (values[i] === x) {
-      count++
-    }
-    else if (values[i] !== x) {
-      count--
-    }
+  if (values == undefined || x === undefined) {
+    return false;
   }
-  if (count >= 0) {
-    return true;
+  else if (values.length < 1) {
+    return false;
+  }
+  else if (!values.includes(x)) {
+    return false;
   }
   else {
+    for (let i = values.indexOf(x); i < values.length; i++) {
+      if (values[i] === values[i + 1] && values[i + 1] !== undefined) {
+        return true;
+        break;
+      }
+      else if (x === 0) {
+        return false;
+        break;
+      }
+      else if (values[i] === values[i + 2] && values[i + 2] !== undefined && values[i + 1] !== values[i]) {
+        return true;
+        break;
+      }
+        else if (values[i] === values[i + 3] && values[i + 3] !== undefined && (values[i + 1] && values[i + 2]) !== values[i + 3]) {
+        return true;
+        break;
+      }
+      else {
+        return false;
+        break;
+      }
+    }
+  }
+}
+
+
+
+function consecutive(numbers) {
+  if (!numbers || numbers.length < 3) {
+    return false;
+  }
+  for (let i = 0; i < numbers.length - 2; i++ ) {
+    let index = numbers[i];
+    let index_2 = numbers[i + 1];
+    let index_3 = numbers[i + 2];
+    if (Number.isInteger(index) == false || Number.isInteger(index_2) == false || Number.isInteger(index_3) == false ) {
+      return false;
+    }
+    if (index % 2 == 0 && index_2 % 2 == 0 && index_3 % 2 == 0) {
+      return true;
+    }
+    else if (index % 2 == 1 && index_2 % 2 == 1 && index_3 % 2 == 1) {
+      return true;
+    }
+  }
+  return false;
+}
+function balance(numbers) {
+  let size = 0
+  let sum1 = 0
+  let sum2 = 0
+  let count = 0
+  if (!numbers || numbers.length < 2) {
+    return false;
+  }
+  for (i = 0; i < numbers.length; i++) {
+    if (!(Number.isInteger(numbers[i]))) {
+      return false;
+    }
+  }
+  for (z = 0; z < numbers.length; z++) {
+    if (numbers[z] == undefined) {
+      return true;
+    }
+  }
+  for (x = numbers.length; x > -1; x--) {
+    sum1 = 0
+    sum2 = 0
+    for(y = numbers.length - x; y > -1; y--) {
+      sum1 = sum1 + numbers[y]
+    }
+    for(a = numbers.length - 1; a > numbers.length - x; a--) {
+      sum2 = sum2 + numbers[a]
+    }
+    if (sum2 == sum1) {
+      count = 1
+      return true;
+    }
+  }
+  if (count == 0) {
     return false;
   }
 }
 
-function consecutive(numbers) {
-  // write your code here
-}
 
-function balance(numbers) {
-  // write your code here
-  console.log("test");
-}
 
 function clumps(values) {
-  // write your code here
+  if (!values) {
+    return -1;
+  }
+  if (values.length < 2) {
+    return 0;
+  }
+  let last = values[0];
+  let current;
+  let clump = 0
+  let count = 0
+  let count2 = 0
+  for (x = 1; x < values.length; x++) {
+    current = values[x]
+    if (last === current) {
+      clump = clump + 1
+      for (y = x; y < values.length; y++) {
+        last = current
+        current = values[y]
+        if (!(last === current)) {
+          count = 1
+          x = y
+          break;
+        }
+        else {
+          count = -1
+        }
+      }
+    }
+    if (count == -1) {
+      break;
+    }
+    last = current
+  }
+  return clump;
 }
 
 /*
